@@ -9,8 +9,8 @@ Kemungkinan proses yang bisa dilakukan dengan dataset ini adalah : <br>
 - Mengelompokkan film berdasarkan rating yang diberi pengguna <br>
 
 <h1> Data Understanding </h1> 
-- Dataset yang digunakan adalah MovieLens 20M Dataset 
 
+- Dataset yang digunakan adalah MovieLens 20M Dataset 
 - Dataset ini menggambarkan penilaian dan kegiatan pemberian tag  MovieLens, layanan rekomendasi film. Dataset ini berisi 20000263 peringkat dan 465564 aplikasi tag di 27278 film. Data ini dibuat oleh 138493 pengguna antara 09 Januari 1995 dan 31 Maret 2015. Dataset ini dibuat pada 17 Oktober 2016.<br>
 
 - Pengguna dipilih secara acak untuk dimasukkan. Semua pengguna terpilih memiliki nilai setidaknya 20 film.<br>
