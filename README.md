@@ -131,5 +131,5 @@ Kemungkinan proses yang bisa dilakukan dengan dataset ini adalah : <br>
 - Kenapa bisa begini???<br>
 
 <h2> Kesimpulan </h2>
-- CSV to Spark membaca data secara paralel sehingga cocok untuk file dengan ukuran yang lebih besar. <br>
-- Namun, jika digunakan untuk data yang kecil maka akan lebih lama memakana waktu karena proses pemilahan data<br>
+CSV to Spark membaca data secara paralel sehingga cocok untuk file dengan ukuran yang lebih besar. Karenanya, jika menggunakan file yang lebih kecil akan memakan waktu lebih lama karena data akan terlebih dahulu dibagi menjadi potongan yang lebih kecil.<br>
+
