@@ -46,7 +46,9 @@ Kemungkinan proses yang bisa dilakukan dengan dataset ini adalah : <br>
   - genome_tags.csv yang berisi deskripsi tag:
     - tagId
     - tag
-
+    
+<h1> Workflow KNIME
+<img src="/dokum/overall.jpg"><br>
 <h1> Data Preparation </h1>
 - Pertama-tama membuat spark context local menggunakan Create Local Big Data Environment<br>
 <img src="/dokum/createlocalspark.jpg"><br>
@@ -98,3 +100,36 @@ Kemungkinan proses yang bisa dilakukan dengan dataset ini adalah : <br>
 - Proses deployment untuk membuat rekomendasi Top 20 dengan rekomendasi 10 film dari data Training<br>
 - Hasil dari node Spark Predictor yang menghasilkan rating untuk film yang belum dirating kepada user <br>
 <img src="/dokum/sparkpredictor2.jpg"><br>
+- Konfigurasi node Spark To Table untuk menaruh dari dataframe spark ke KNIME<br>
+<img src="/dokum/sparktotable.jpg"><br>
+- node Top20 Recommended Movies terdiri dari beberapa node. Kita bisa membuka componentnya<br>
+<img src="/dokum/top20.jpg"><br>
+- Didalam node Display Recommendations juga terdiri dari beberapa node. Kita bisa membuka componentnya<br>
+- Hasil dari Display Recommendation dan ditampilkan dalam portal web. Isi dari rekomendasi ini berdasarkan rating 5 yang kita berikan pada peratingan film acak pertama kali. <br>
+<img src="/dokum/result.jpg"><br>
+- Lalu, kita bisa menaruh hasil tersebut dengan CSV Writer . Berikut konfigurasinya<br>
+<img src="/dokum/csvwriter1.jpg"><br>
+- Hasil dari file <br>
+<img src="/dokum/csvwriter2.jpg"><br>
+<img src="/dokum/csvwriter3.jpg"><br>
+
+<h1> Membandingkan berapa lama waktu yang diperlukan File Reader dan CSV to Spark untuk membaca sebuah file </h1>
+- Disini kita menggunakan node Timer Info yang bisa melihat seluruh waktu yang diperlukan oleh semua proses dalam KNIME workflow <br>
+<img src="/dokum/timerinfo.jpg"><br>
+
+- Hasil dari timer info : <br>
+<img src="/dokum/timerinfores.jpg"><br>
+
+- Seperti yang kita lihat, untuk ratings.csv CSV To Spark memerlukan waktu yang lebih cepat dibandingkan dengan file reader <br>
+- Namun, kita mencoba untuk menggunakan dataset yang lebih kecil. <br>
+- Disini saya mencoba membuat project baru dan menggunakan dataset cereals.csv yang memiliki ukuran yang kecil (5KB) <br>
+<img src="/dokum/test.jpg"><br>
+
+- Hasil dari Timer info :<br>
+<img src="/dokum/timerinfores2.jpg"><br>
+- Seperti yang kita lihat, waktu yang diperlukan untuk membaca cereal.csv oleh CSV to Spark lebih lama dari File reader.<br>
+- Kenapa bisa begini???<br>
+
+<h2> Kesimpulan </h2>
+- CSV to Spark membaca data secara paralel sehingga cocok untuk file dengan ukuran yang lebih besar. <br>
+- Namun, jika digunakan untuk data yang kecil maka akan lebih lama memakana waktu karena proses pemilahan data<br>
